@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TravelExpenseTracker.Pages.RegisterPage"
+             xmlns:controls="clr-namespace:TravelExpenseTracker.Controls"
+             xmlns:vm="clr-namespace:TravelExpenseTracker.ViewModels"
+             x:DataType="vm:RegisterViewModel">
+
+    <!-- styles -->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="appName" TargetType="Label" >
+                <Setter Property="FontSize" Value="25" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="Auto, Auto, Auto, *" RowSpacing="15">
+        <!-- Tittle -->
+        <VerticalStackLayout Grid.Row="0" HorizontalOptions="Center" Margin="0,50,0,0">
+            <Label Text="Travel" 
+               Style="{StaticResource appName}"/>
+            <Label Text="Expense" 
+               Style="{StaticResource appName}"/>
+            <Label Text="Tracker" 
+               Style="{StaticResource appName}"/>
+        </VerticalStackLayout>
+
+        <Label Grid.Row="1" 
+           FontSize="22"
+           HorizontalOptions="Center"
+           Text="Welcome Back"/>
+
+        <!-- FORM -->
+        <VerticalStackLayout Grid.Row="2" Spacing="20" Padding="15">
+
+            <Border Style="{StaticResource entryWrapper}">
+
+                <controls:NoUnderlineEntry BackgroundColor="LightBlue" Placeholder="Name" />
+            </Border>
+
+            <Border Style="{StaticResource entryWrapper}">
+                
+                <controls:NoUnderlineEntry BackgroundColor="LightBlue" Placeholder="Email" />
+            </Border>
+
+            <Border Style="{StaticResource entryWrapper}">
+
+                    <controls:NoUnderlineEntry BackgroundColor="LightBlue" Placeholder="Password" IsPassword="True"/>
+            </Border>
+                        
+
+            <Button Text="Register" FontAttributes="Bold"/>
+
+            <Label HorizontalOptions="Center"
+                   Text="Already have an account? Login"
+                   TextColor="DarkBlue">
+
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NavigateBackCommand}"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

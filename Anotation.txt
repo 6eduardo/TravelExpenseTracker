@@ -1,0 +1,10 @@
+[RelayCommand]
+
+
+//To Use biding with command
+xmlns:vm="clr-namespace:TravelExpenseTracker.ViewModels"
+x:DataType="vm:LoginViewModel"
+
+
+//What it do:
+<Grid RowDefinitions="Auto, Auto, Auto, *" RowSpacing="15">
