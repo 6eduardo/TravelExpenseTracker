@@ -8,7 +8,7 @@ namespace TravelExpenseTracker
         {
             InitializeComponent();
 
-            //aDDIN THE rEGISTER pAGE
+            //Registering the register page
             Routing.RegisterRoute(nameof(RegisterPage), typeof(RegisterPage));
         }
     }

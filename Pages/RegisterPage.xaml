@@ -10,7 +10,7 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="appName" TargetType="Label" >
-                <Setter Property="FontSize" Value="25" />
+                <Setter Property="FontSize" Value="24" />
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="HorizontalOptions" Value="Center" />
             </Style>
@@ -19,19 +19,16 @@
 
     <Grid RowDefinitions="Auto, Auto, Auto, *" RowSpacing="15">
         <!-- Tittle -->
-        <VerticalStackLayout Grid.Row="0" HorizontalOptions="Center" Margin="0,50,0,0">
-            <Label Text="Travel" 
-               Style="{StaticResource appName}"/>
-            <Label Text="Expense" 
-               Style="{StaticResource appName}"/>
-            <Label Text="Tracker" 
+        <VerticalStackLayout Grid.Row="0" HorizontalOptions="Center">
+            <Image Source="logo.jpg" HeightRequest="150"/>
+            <Label Text="Travel Expense Tracker" 
                Style="{StaticResource appName}"/>
         </VerticalStackLayout>
 
         <Label Grid.Row="1" 
-           FontSize="22"
+           FontSize="20"
            HorizontalOptions="Center"
-           Text="Welcome Back"/>
+           Text="Welcome here!"/>
 
         <!-- FORM -->
         <VerticalStackLayout Grid.Row="2" Spacing="20" Padding="15">

@@ -18,16 +18,16 @@
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-    
-    <Grid RowDefinitions="Auto, Auto, Auto, *" RowSpacing="15">
+
+    <Grid Margin="0,80,0,0"
+          RowDefinitions="Auto, Auto, Auto, *" 
+          RowSpacing="15">
+        
         <!-- Tittle -->
-        <VerticalStackLayout Grid.Row="0" HorizontalOptions="Center" Margin="0,50,0,0">
-            <Label Text="Travel" 
-                   Style="{StaticResource appName}"/>
-            <Label Text="Expense" 
-                   Style="{StaticResource appName}"/>
-            <Label Text="Tracker" 
-                   Style="{StaticResource appName}"/>
+        <VerticalStackLayout Grid.Row="0" HorizontalOptions="Center">
+            <Image Source="logo.jpg" HeightRequest="150"/>
+            <Label Text="Travel Expense Tracker" 
+               Style="{StaticResource appName}"/>
         </VerticalStackLayout>
 
         <Label Grid.Row="1" 
@@ -45,7 +45,9 @@
                 <controls:NoUnderlineEntry BackgroundColor="LightBlue" Placeholder="Password" IsPassword="True"/>
             </Border>
 
-            <Button Text="Login" FontAttributes="Bold"/>
+            <Button Command="{Binding LoginCommand}"
+                    Text="Login" 
+                    FontAttributes="Bold"/>
 
             <Label HorizontalOptions="Center"
                    Text="Don't have an account? Register"

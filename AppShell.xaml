@@ -5,9 +5,21 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:TravelExpenseTracker"
     xmlns:pages="clr-namespace:TravelExpenseTracker.Pages"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     Title="TravelExpenseTracker"
-    Shell.FlyoutBehavior="Disabled">
-    
+    Shell.FlyoutBehavior="Disabled"
+    Shell.NavBarHasShadow="True"
+    Shell.TabBarBackgroundColor="{StaticResource Primary}"
+    Shell.TabBarForegroundColor="White"
+    Shell.TabBarTitleColor="White" 
+    Shell.TabBarUnselectedColor="#ededed">
+
+
+    <!-- Change the color from top -->
+    <Shell.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="{StaticResource Primary}"
+                                   StatusBarStyle="LightContent"/>
+    </Shell.Behaviors>
 
     <!-- LOGIN -->
     <ShellContent
@@ -15,11 +27,35 @@
         ContentTemplate="{DataTemplate pages:LoginPage}"
         Route="LoginPage" />
 
-    <!-- HOME -->
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <TabBar>
+        <!-- HOME -->
+        <ShellContent
+             Title="Home"
+             Icon="home.png"
+             ContentTemplate="{DataTemplate pages:MainPage}"
+             Route="MainPage" />
+        
+        <!-- HOME -->
+        <ShellContent
+             Title="Trips"
+             Icon="open_book.png"
+             ContentTemplate="{DataTemplate pages:MainPage}"
+             Route="MainPage1" />
+        
+        <!-- HOME -->
+        <ShellContent
+             Title="Add Trip"
+             Icon="add.png"
+             ContentTemplate="{DataTemplate pages:MainPage}"
+             Route="MainPage2" />
+        
+        <!-- HOME -->
+        <ShellContent
+             Title="Settings"
+             Icon="settings.png"
+             ContentTemplate="{DataTemplate pages:MainPage}"
+             Route="MainPage3" />
+    </TabBar>
 
 
 </Shell>
