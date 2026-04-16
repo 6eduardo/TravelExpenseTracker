@@ -8,3 +8,13 @@ x:DataType="vm:LoginViewModel"
 
 //What it do:
 <Grid RowDefinitions="Auto, Auto, Auto, *" RowSpacing="15">
+
+public record Name()
+
+Whats the diference between :
+//Transient
+                .AddTransient<RegisterViewModel>()
+                .AddTransient<RegisterPage>();
+//Singleton
+                .AddSingleton<HomeViewModel>()
+                .AddSingleton<MainPage>();

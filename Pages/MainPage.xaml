@@ -1,12 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:TravelExpenseTracker.ViewModels"
+             xmlns:model="clr-namespace:TravelExpenseTracker.Model"
              x:Class="TravelExpenseTracker.Pages.MainPage"
              Title="Travel Expense Tracker"
              Shell.BackgroundColor="{StaticResource Primary}"
              Shell.TitleColor="White">
 
-    <Grid RowDefinitions="250, Auto" RowSpacing="5">
+    <Grid RowDefinitions="250, Auto, *" RowSpacing="5">
         <Image Grid.Row="0"
                HeightRequest="250"
                Source="trip.png"
@@ -18,8 +20,37 @@
             <Button Grid.Column="2" 
                     Text="+ Add a Trip" 
                     VerticalOptions="Start"
-                    Style="{StaticResource btnSm}"/>
+                    Style="{StaticResource btnSm}"
+                    Command="{Binding AddTripsTempCommand}"/>
         </Grid>
+
+        <CollectionView Grid.Row="2" ItemsSource="{Binding Trips}">
+            <CollectionView.EmptyView>
+                <VerticalStackLayout Margin="0,50,0,0"
+                                     HorizontalOptions="Center"
+                                     Padding="25"
+                                     Spacing="10">
+                    <Label Text="No Trips Yet"
+                           FontSize="25"
+                           TextColor="DarkGray"/>
+                    
+                    <Button Grid.Column="2" 
+                            Text="+ Add a Trip" 
+                            VerticalOptions="Start"
+                            HorizontalOptions="Center"
+                            Style="{StaticResource btnSm}"
+                            Command="{Binding AddTripsTempCommand}"/>
+                </VerticalStackLayout>
+            </CollectionView.EmptyView>
+            
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:TripModel">
+                    <Border StrokeShape="RoundRectangle 15" BackgroundColor="White">
+                        
+                    </Border>
+                </DataTemplate>    
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </Grid>
 
 </ContentPage>

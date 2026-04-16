@@ -33,6 +33,12 @@ namespace TravelExpenseTracker
                 .AddTransient<RegisterViewModel>()
                 .AddTransient<RegisterPage>();
 
+
+            //Home VM and Page
+            builder.Services
+                .AddSingleton<HomeViewModel>()
+                .AddSingleton<MainPage>();
+
             return builder.Build();
         }
     }
